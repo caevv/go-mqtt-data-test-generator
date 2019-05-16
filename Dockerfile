@@ -8,11 +8,11 @@ WORKDIR /${SERVICE_NAME}
 
 RUN go mod tidy
 
-RUN CGO_ENABLED=1 GOOS=linux GOARCH=amd64 go build -a -o /go/bin/svc
+RUN CGO_ENABLED=0 GOOS=linux GOARCH=amd64 go build -a -o /artifact/svc
 
 # ----------------------------------------- STEP 2 --------------------------------------
 FROM alpine
 
-COPY --from=builder /go/bin/svc /svc
+COPY --from=builder /artifact/svc /svc
 
 ENTRYPOINT ["./svc"]
