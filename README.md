@@ -5,7 +5,6 @@ Generate data from file and send it to an MQTT broker
 APP_FREQUENCY
 APP_PAYLOAD_FILE_PATH
 
-// MQTT:
 APP_MQTT_CLIENT_LOG
 APP_MQTT_BROKER
 APP_MQTT_CLEAN_SESSION
