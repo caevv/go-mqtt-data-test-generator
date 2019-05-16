@@ -11,7 +11,7 @@ RUN go mod tidy
 RUN CGO_ENABLED=1 GOOS=linux GOARCH=amd64 go build -a -o /go/bin/svc
 
 # ----------------------------------------- STEP 2 --------------------------------------
-FROM scratch
+FROM alpine
 
 COPY --from=builder /go/bin/svc /svc
 
