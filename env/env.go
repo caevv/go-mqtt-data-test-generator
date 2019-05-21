@@ -13,7 +13,6 @@ type Config struct {
 }
 
 type Mqtt struct {
-	ClientLog         bool
 	Broker            string
 	CleanSession      bool
 	ClientID          string
@@ -32,13 +31,21 @@ var Settings *Config
 func init() {
 	viper.AutomaticEnv()
 	viper.SetEnvPrefix("APP")
+	viper.SetDefault("FREQUENCY", "1s")
+	viper.SetDefault("MQTT_CLEAN_SESSION", "true")
+	viper.SetDefault("MQTT_ORDER_MATTERS", "true")
+	viper.SetDefault("MQTT_WRITE_TIMEOUT", "1s")
+	viper.SetDefault("MQTT_CONNECTION_TIMEOUT", "1s")
+	viper.SetDefault("MQTT_KEEP_ALIVE", "2s")
+	viper.SetDefault("MQTT_AUTO_RECONNECT", "false")
+	viper.SetDefault("MQTT_QOS", "1")
+	viper.SetDefault("MQTT_RETAINED_MESSAGE", "false")
 
 	Settings = &Config{
 		Frequency:       viper.GetDuration("FREQUENCY"),
 		PayloadFilePath: viper.GetString("PAYLOAD_FILE_PATH"),
 
 		Mqtt: Mqtt{
-			ClientLog:         viper.GetBool("MQTT_CLIENT_LOG"),
 			Broker:            viper.GetString("MQTT_BROKER"),
 			CleanSession:      viper.GetBool("MQTT_CLEAN_SESSION"),
 			ClientID:          viper.GetString("MQTT_CLIENT_ID"),

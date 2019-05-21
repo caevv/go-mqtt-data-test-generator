@@ -42,6 +42,8 @@ func (c *Client) Pub(topic string, qos int, retained bool, payload interface{}) 
 		return errors.Wrap(token.Error(), "subscriber token failed")
 	}
 
+	log.Printf("message published to topic %q", topic)
+
 	return nil
 }
 
