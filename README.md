@@ -6,6 +6,7 @@ Generate data from file and send it to an MQTT broker
 ### Required
 - APP_MQTT_BROKER
 - APP_MQTT_CLIENT_ID
+- APP_MQTT_TOPIC
 
 ### Optional
 - APP_FREQUENCY
@@ -17,6 +18,5 @@ Generate data from file and send it to an MQTT broker
 - APP_MQTT_CONNECTION_TIMEOUT
 - APP_MQTT_KEEP_ALIVE
 - APP_MQTT_AUTO_RECONNECT
-- APP_MQTT_TOPIC
 - APP_MQTT_QOS
 - APP_MQTT_RETAINED_MESSAGE
